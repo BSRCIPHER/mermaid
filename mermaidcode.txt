@@ -1,12 +1,4 @@
-sequenceDiagram
-    actor User
-    participant App
-    participant API
-    participant DB
-
-    User->>App: Login
-    App->>API: Send credentials
-    API->>DB: Validate user
-    DB-->>API: User found
-    API-->>App: Authentication token
-    App-->>User: Login successful
+pie title Pets adopted by volunteers
+    "Dogs" : 386
+    "Cats" : 85
+    "Rabbits" : 15
