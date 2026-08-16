@@ -1,4 +1,10 @@
-pie title Pets adopted by volunteers
-    "Dogs" : 386
-    "Cats" : 85
-    "Rabbits" : 15
+sequenceDiagram
+    autonumber
+    User->>System: Login
+    alt is valid
+        System->>Database: Save Session
+        Database-->>System: ACK
+        System-->>User: Dashboard
+    else is invalid
+        System-->>User: Invalid Creds
+    end
