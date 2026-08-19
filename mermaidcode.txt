@@ -1,10 +1,14 @@
-sequenceDiagram
-    autonumber
-    User->>System: Login
-    alt is valid
-        System->>Database: Save Session
-        Database-->>System: ACK
-        System-->>User: Dashboard
-    else is invalid
-        System-->>User: Invalid Creds
+graph LR
+  subgraph TOP
+    direction TB
+    subgraph B1
+      direction RL
+      i1[i1] --> f1[f1]
     end
+    subgraph B2
+      direction BT
+      i2[i2] --> f2[f2]
+    end
+  end
+  A[A] --> TOP --> B[B]
+  B1 --> B2
