@@ -1,14 +1,17 @@
-graph LR
-  subgraph TOP
-    direction TB
-    subgraph B1
-      direction RL
-      i1[i1] --> f1[f1]
-    end
-    subgraph B2
-      direction BT
-      i2[i2] --> f2[f2]
-    end
-  end
-  A[A] --> TOP --> B[B]
-  B1 --> B2
+flowchart TD
+    A([Start]) --> B[User opens Confluence]
+    B --> C{Is user logged in?}
+    
+    C -->|Yes| D[Open PlantUML Macro]
+    C -->|No| E[Login]
+    E --> D
+    
+    D --> F[Load Diagram]
+    F --> G{GitHub connected?}
+    
+    G -->|Yes| H[Fetch Repository]
+    H --> I[Render PlantUML Diagram]
+    G -->|No| I
+    
+    I --> J[Show Preview]
+    J --> K([End])
