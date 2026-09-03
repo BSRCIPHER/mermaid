@@ -1,17 +1,17 @@
-flowchart TD
-    A([Start]) --> B[User opens Confluence]
-    B --> C{Is user logged in?}
-    
-    C -->|Yes| D[Open PlantUML Macro]
-    C -->|No| E[Login]
-    E --> D
-    
-    D --> F[Load Diagram]
-    F --> G{GitHub connected?}
-    
-    G -->|Yes| H[Fetch Repository]
-    H --> I[Render PlantUML Diagram]
-    G -->|No| I
-    
-    I --> J[Show Preview]
-    J --> K([End])
+classDiagram
+    class User {
+        +String id
+        +String name
+        +String email
+        +login()
+        +logout()
+    }
+
+    class Order {
+        +String orderId
+        +Date createdAt
+        +createOrder()
+        +cancelOrder()
+    }
+
+    User "1" --> "*" Order : creates
