@@ -1,17 +1,8 @@
-classDiagram
-    class User {
-        +String id
-        +String name
-        +String email
-        +login()
-        +logout()
-    }
-
-    class Order {
-        +String orderId
-        +Date createdAt
-        +createOrder()
-        +cancelOrder()
-    }
-
-    User "1" --> "*" Order : creates
+flowchart TD
+    A[Start] --> B[User Login]
+    B --> C{Valid Credentials?}
+    C -->|Yes| D[Dashboard]
+    C -->|No| E[Show Error]
+    E --> B
+    D --> F[Logout]
+    F --> G[End]
