@@ -1,8 +1,12 @@
-flowchart TD
-    A[Start] --> B[User Login]
-    B --> C{Valid Credentials?}
-    C -->|Yes| D[Dashboard]
-    C -->|No| E[Show Error]
-    E --> B
-    D --> F[Logout]
-    F --> G[End]
+sequenceDiagram
+    actor User
+    participant Frontend
+    participant API
+    participant Database
+
+    User->>Frontend: Login
+    Frontend->>API: POST /login
+    API->>Database: Validate User
+    Database-->>API: User Found
+    API-->>Frontend: JWT Token
+    Frontend-->>User: Login Successful
