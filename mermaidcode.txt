@@ -1,12 +1,7 @@
-sequenceDiagram
-    actor User
-    participant Frontend
-    participant API
-    participant Database
-
-    User->>Frontend: Login
-    Frontend->>API: POST /login
-    API->>Database: Validate User
-    Database-->>API: User Found
-    API-->>Frontend: JWT Token
-    Frontend-->>User: Login Successful
+flowchart TD
+    A[Start] --> B{Is user logged in?}
+    B -->|Yes| C[Open Dashboard]
+    B -->|No| D[Show Login Page]
+    D --> E[Login]
+    E --> C
+    C --> F[End]
